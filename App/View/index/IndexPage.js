@@ -1,9 +1,11 @@
 'use strict';
 
 var React = require('react-native');
-var Swiper = require('react-native-swiper');
-var Api = require('../WebApi/api');
+var BannerSlider = require('../component/BannerSlider.js');
 
+var Api = require('../../WebApi/api.js');
+
+var Style = require('./StyleSheet');
 
 var sliderImgs = [];
 
@@ -23,20 +25,6 @@ var {
   reachabilityIOS
 } = React;
 
-
-class Slider extends Component{
-    render(){
-        return (
-          <Swiper style={styles.wrapper} showsButtons={false} autoplay={true} height={150} showsPagination={false}>
-            <Image style={[styles.slide,]} source={{uri: "http://posts.cdn.wallstcn.com/27/2d/d9/1200.jpg"}}></Image>
-            <Image style={[styles.slide,]} source={{uri: sliderImgs[1]}}></Image>
-            <Image style={[styles.slide,]} source={{uri: sliderImgs[2]}}></Image>
-            <Image style={[styles.slide,]} source={{uri: sliderImgs[2]}}></Image>
-            <Image style={[styles.slide,]} source={{uri: sliderImgs[2]}}></Image>
-          </Swiper>
-        );
-    }
-};
 
 class IndexPage extends Component{
 
@@ -80,7 +68,7 @@ class IndexPage extends Component{
   render() {
     return (
       <View style={{marginTop:80,padding:20,alignItems:'center'}}>
-        <Slider/>
+        <BannerSlider/>
         <Text>banan</Text>
       </View>
     );
@@ -89,16 +77,5 @@ class IndexPage extends Component{
 
 };
 
-var styles = StyleSheet.create({
-  //slider
-    wrapper: {
-        height:80,
-    },
-    slide: {
-        height:80,
-        resizeMode: Image.resizeMode.contain,
-    },
-
-});
 
 module.exports = IndexPage;
