@@ -7,7 +7,7 @@ var Api = require('../../WebApi/api.js');
 
 var Style = require('./StyleSheet');
 
-var sliderImgs = [];
+var sliderUrl = [];
 
 
 var {
@@ -31,7 +31,7 @@ class IndexPage extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      
+      bannerDetails:'',
     };
   }
 
@@ -59,17 +59,18 @@ class IndexPage extends Component{
 
   setBanner(results){
     for (var i = 0; i < 5; i++) {
-      sliderImgs.push(results[i].img.url)
-      console.log(sliderImgs)
+      sliderUrl.push(results[i])
     };
+    this.setState({
+      bannerDetails:sliderUrl
+    })
   }
 
 
   render() {
     return (
-      <View style={{marginTop:80,padding:20,alignItems:'center'}}>
-        <BannerSlider/>
-        <Text>banan</Text>
+      <View style={{alignItems:'center'}}>
+        <BannerSlider bannerDetails={this.state.bannerDetails} />
       </View>
     );
   }

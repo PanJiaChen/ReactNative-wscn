@@ -72,10 +72,11 @@ var ReactNativeWscn = React.createClass({
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5FCFF'
+    backgroundColor: '#red',
+    height:20
   },
   navigator: {
-    backgroundColor: '#EFEFEF'
+    backgroundColor: 'red'
   }
 });
 
