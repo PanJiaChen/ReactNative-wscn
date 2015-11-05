@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react-native');
+var ScrollableTabView = require('react-native-scrollable-tab-view');
 
 var {
   AppRegistry,
@@ -28,14 +29,29 @@ class LivePage extends Component{
   }
   render() {
     return (
-      <View style={{marginTop:80,padding:20,alignItems:'center'}}>
-        <Text>直播页面</Text>
-      </View>
+       <ScrollableTabView>
+        <ReactPage tabLabel="React" />
+        <FlowPage tabLabel="Flow" />
+      </ScrollableTabView>
     );
   }
-
-
 };
+
+class ReactPage extends Component{
+  render(){
+    return(
+        <Text>apple</Text>
+    )
+  }
+}
+
+class FlowPage extends Component{
+  render(){
+    return(
+        <Text>FlowPage</Text>
+    )
+  }
+}
 
 var styles = StyleSheet.create({
   //slider
